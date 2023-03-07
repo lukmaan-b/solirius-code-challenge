@@ -9,7 +9,7 @@ Coding Challenge
 |       └── romanNumeralGenerator.spec.js
 ├── web
 │   └── index.html
-└── romanNumeralGenerator.spec.js
+└── romanNumeralGenerator.js
 ```
 
 ## romanNumeralGenerator.js
