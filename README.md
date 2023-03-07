@@ -15,7 +15,7 @@ Coding Challenge
 ## romanNumeralGenerator.js
 This is the main function. It takes a number value and outputs roman string.<br/>
 The function works by storing an array of units, tens, hundreds & thousands.<br/>
-It will then loop through the int and calulate the index for each unit.<br/>
+It will then loop through the int and calculate the index for each unit.<br/>
 
 ## Node
 ### Prerequisites
