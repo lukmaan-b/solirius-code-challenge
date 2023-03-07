@@ -1,3 +1,9 @@
+/**
+ * romanNumeralGenerator
+ * Takes an integer and returns a string of the roman numeral
+ * @param {number} int 
+ * @returns {string} roman numeral
+ */
 function romanNumeralGenerator(int) {
   if (int < 0 || !int || typeof int !== 'number') {
     return 0
@@ -7,15 +13,20 @@ function romanNumeralGenerator(int) {
   const HundredArr = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
   const ThousandArr = ["M", "MM", "MMM"]
 
-  const uIndex = Math.floor(int % 10) - 1;
-  const tIndex = Math.floor(int % 100 / 10) - 1;
-  const hIndex = Math.floor(int % 1000 / 100) - 1;
-  const thIndex = Math.floor(int % 10000 / 1000) - 1;
+  const arr = [
+    unitArr,
+    TenArr,
+    HundredArr,
+    ThousandArr,
+  ]
 
-  const uStr = unitArr[uIndex]
-  const tStr = TenArr[tIndex]
-  const hStr = HundredArr[hIndex]
-  const thStr = ThousandArr[thIndex]
-
-  return `${thStr || ''}${hStr || ''}${tStr || ''}${uStr || ''}`
+  let str = ''
+  // loop through each stage (Units -> Tens -> Hundreds -> Thousands)
+  for (let i = 0; i < 4; i++) {
+    const currentIndex = Math.floor(int % Math.pow(10, i + 1) / Math.pow(10, i)) - 1
+    if (arr[i][currentIndex]) {
+      str = `${arr[i][currentIndex]}${str}`
+    }
+  }
+  return str
 }
