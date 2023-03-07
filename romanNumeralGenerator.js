@@ -1,3 +1,15 @@
+const unitArr = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+const TenArr = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+const HundredArr = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+const ThousandArr = ["M", "MM", "MMM"]
+
+const arr = [
+  unitArr,
+  TenArr,
+  HundredArr,
+  ThousandArr,
+]
+
 /**
  * romanNumeralGenerator
  * Takes an integer and returns a string of the roman numeral
@@ -5,20 +17,15 @@
  * @returns {string} roman numeral
  */
 function romanNumeralGenerator(int) {
-  if (int < 0 || !int || typeof int !== 'number') {
-    return 0
+  if (typeof int !== 'number' || isNaN(int)) {
+    return "Enter a number"
   }
-  const unitArr = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
-  const TenArr = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
-  const HundredArr = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
-  const ThousandArr = ["M", "MM", "MMM"]
-
-  const arr = [
-    unitArr,
-    TenArr,
-    HundredArr,
-    ThousandArr,
-  ]
+  if (int > 3999) {
+    return 'Number too large'
+  }
+  if (int < 1) {
+    return 'Number too small'
+  }
 
   let str = ''
   // loop through each stage (Units -> Tens -> Hundreds -> Thousands)
@@ -30,3 +37,5 @@ function romanNumeralGenerator(int) {
   }
   return str
 }
+
+module.exports = romanNumeralGenerator
